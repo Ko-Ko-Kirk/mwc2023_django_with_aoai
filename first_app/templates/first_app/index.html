@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>小熊故事機</title>
+</head>
+
+<body style="text-align: center">
+    <h1>小熊故事機</h1>
+    <form method="post" class="flex-container">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">說故事</button>
+    </form>
+
+    {% if audio %}
+    <audio controls>
+        <source src="{{ audio }}" type="audio/mpeg">
+    </audio>
+    {% endif %}
+
+    {% if story %}
+    <p>{{ story }}</p>
+    {% endif %}
+
+</body>
+
+</html>
